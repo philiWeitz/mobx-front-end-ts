@@ -1,0 +1,25 @@
+{
+  "roots": ["<rootDir>/__tests__"],
+
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js"
+  ],
+
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+  },
+
+  "transform": {
+    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+  },
+
+  "testRegex": ".*\\.test.(ts|tsx|js)$",
+
+  "setupFiles": [
+    "<rootDir>/__tests__/pre-setup.js",
+    "<rootDir>/__tests__/setup.js"
+  ]
+}

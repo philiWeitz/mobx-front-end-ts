@@ -1,0 +1,8 @@
+{
+  "common": {
+    "hello": "This is a localized string with default namespace"
+  },
+  "other-name-space": {
+    "hello": "This is a localized string with local namespace"
+  }
+}

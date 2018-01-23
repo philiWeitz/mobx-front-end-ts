@@ -1,0 +1,32 @@
+version: '3'
+
+# Compose file to start Heroku like dev environment
+services:
+
+# Main UI instance config
+  ui:
+    build:
+      context: .
+      dockerfile: './docker/Dockerfile-node'
+    command: 'bash -c "yarn install && ./scripts/start.sh"'
+    ports:
+      - '3001:3001'
+    working_dir: '/app'
+    volumes:
+      - '.:/app'
+    env_file:
+      - '.env'
+
+# CI instance config
+  ci:
+    build:
+      context: .
+      dockerfile: './docker/Dockerfile-node'
+    command: 'bash -c "yarn install && yarn ci"'
+    ports:
+      - '3001:3001'
+    working_dir: '/app'
+    volumes:
+      - '.:/app'
+    env_file:
+      - '.env_test'
