@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react';
 import Hello from '../../components/Hello';
 import SampleModel from '../../model/SampleModel';
 import SamplesStore from '../../mobx/domainStores/samplesStore';
+import PostSubscriptionList from '../../components/PostSubscriptionList';
 
 
 // add injected props here
@@ -35,6 +36,7 @@ class SamplesView extends React.Component {
     return (
       <div>
         <Hello />
+        <PostSubscriptionList />
         <div>Samples</div>
         <div>
           { samples.map(this.renderSample)}

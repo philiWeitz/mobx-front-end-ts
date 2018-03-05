@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { IStores } from './stores';
 import { Router } from 'react-router';
+import { ApolloProvider } from 'react-apollo';
 import { Provider as MobxProvider } from 'mobx-react';
 import { SynchronizedHistory } from 'mobx-react-router';
 import { enableLogging, IMobXLoggerConfig } from 'mobx-logger';
@@ -11,6 +12,7 @@ import DevTools, { setLogEnabled, setUpdatesEnabled, setGraphEnabled } from 'mob
 
 
 import App from '../modules/app/AppView';
+import graphQLClient from '../graphql/graphQLClient';
 
 
 const mobxLoggerConfig : IMobXLoggerConfig = {
@@ -39,24 +41,28 @@ const Provider = ({ stores, history } : ProviderProps) => {
     (window as any).stores = stores;
 
     return (
-      <MobxProvider {...stores}>
-        <Router history={history}>
-          <div>
-            <App />
-            <DevTools />
-          </div>
-        </Router>
-      </MobxProvider>
+      <ApolloProvider client={graphQLClient}>
+        <MobxProvider {...stores}>
+          <Router history={history}>
+            <div>
+              <App />
+              <DevTools />
+            </div>
+          </Router>
+        </MobxProvider>
+      </ApolloProvider>
     );
   };
 
   const renderProductionProvider = () => {
     return (
-      <MobxProvider {...stores}>
-        <Router history={history}>
-          <App />
-        </Router>
-      </MobxProvider>
+      <ApolloProvider client={graphQLClient}>
+        <MobxProvider {...stores}>
+          <Router history={history}>
+            <App />
+          </Router>
+        </MobxProvider>
+      </ApolloProvider>
     );
   };
 
