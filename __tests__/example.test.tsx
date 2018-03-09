@@ -1,10 +1,16 @@
 /* global describe, it, expect */
 
-import * as React from "react";
-import { shallow } from "enzyme";
+import * as React from 'react';
+import { shallow } from 'enzyme';
 import enzymeToJson from 'enzyme-to-json';
 
-import Hello from '../src/components/Hello';
+import { Hello } from '../src/components';
+
+
+declare const it: any;
+declare const expect: any;
+declare const describe: any;
+
 
 describe('example test', () => {
 
@@ -17,6 +23,6 @@ describe('example test', () => {
       <Hello />,
     );
     expect(enzymeToJson(wrapper)).toMatchSnapshot();
-  })
+  });
 
 });

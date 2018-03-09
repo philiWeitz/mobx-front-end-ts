@@ -4,6 +4,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+export NODE_ENV=test
 
 #### style check
 printf "\n"
