@@ -3,13 +3,13 @@ import * as React from 'react';
 
 import { graphql } from 'react-apollo';
 
-import subscription from '../graphql/subscription';
+import subscription from '../../graphql/subscription';
 
 
 const PostSubscriptionList = ({ data: { postUpVoted, loading } }) => {
 
   const renderLoading = () => {
-    return <div>Loading...</div>;
+    return <div>Waiting for subscription data...</div>;
   };
 
   const renderPosts = () => {
@@ -26,9 +26,7 @@ const PostSubscriptionList = ({ data: { postUpVoted, loading } }) => {
   const renderContent = () => {
     return (
       <div>
-        <h2>GraphQL Subscription Example</h2>
         {loading ? renderLoading() : renderPosts()}
-        <p/>
       </div>
     );
   };

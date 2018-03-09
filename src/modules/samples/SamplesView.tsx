@@ -2,18 +2,23 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 
-import Hello from '../../components/Hello';
 import SampleModel from '../../model/SampleModel';
+import PostsStore from '../../mobx/domainStores/postsStore';
 import SamplesStore from '../../mobx/domainStores/samplesStore';
-import PostSubscriptionList from '../../components/PostSubscriptionList';
+
+import { Hello, PostList, PostSubscriptionList } from '../../components';
+
+const styles = require('./styles.scss');
 
 
 // add injected props here
 interface InjectedSampleViewProps {
+  posts: PostsStore;
   samples: SamplesStore;
 }
 
 
+@inject('posts')
 @inject('samples')
 @observer
 class SamplesView extends React.Component {
@@ -36,9 +41,16 @@ class SamplesView extends React.Component {
     return (
       <div>
         <Hello />
-        <PostSubscriptionList />
-        <div>Samples</div>
-        <div>
+        <h2>GraphQL Fetch data</h2>
+        <div className={styles.sampleContainer}>
+          <PostList posts={this.injected.posts.posts} />
+        </div>
+        <h2>GraphQL Subscription data</h2>
+        <div className={styles.sampleContainer}>
+          <PostSubscriptionList />
+        </div>
+        <h2>Samples from API</h2>
+        <div className={styles.sampleContainer}>
           { samples.map(this.renderSample)}
         </div>
       </div>

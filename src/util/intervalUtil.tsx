@@ -5,6 +5,7 @@ const intervalIds = {};
 
 const intervalUtil = {
 
+  FETCH_POSTS: 'FETCH_POSTS_INTERVAL',
   FETCH_SAMPLES: 'FETCH_SAMPLES_INTERVAL',
 
   addInterval: (key : string, func: () => any, interval : number,

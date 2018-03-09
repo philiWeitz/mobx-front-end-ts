@@ -13,6 +13,9 @@ import config from '../config';
 // Create an http link:
 const httpLink = new HttpLink({
   uri: config.GRAPH_QL_URL,
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+  },
 });
 
 // Create a WebSocket link:
