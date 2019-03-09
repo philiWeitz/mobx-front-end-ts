@@ -1,16 +1,13 @@
 
 import * as React from 'react';
-import { transNameSpace } from '../../util/i18n';
-
-const t = transNameSpace('other-name-space');
-
+import * as style from './styles.scss';
 
 export default class Hello extends React.Component {
   render() {
     return (
-      <div>
+      <div className={style.page}>
         <h1>Hello World Component!</h1>
-        <p>{t('hello')}</p>
+        <p>hello</p>
       </div>
     );
   }

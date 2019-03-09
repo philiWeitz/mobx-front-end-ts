@@ -4,15 +4,12 @@ import * as React from 'react';
 
 import { IStores } from './stores';
 import { Router } from 'react-router';
-import { ApolloProvider } from 'react-apollo';
 import { Provider as MobxProvider } from 'mobx-react';
 import { SynchronizedHistory } from 'mobx-react-router';
 import { enableLogging, IMobXLoggerConfig } from 'mobx-logger';
 import DevTools, { setLogEnabled, setUpdatesEnabled, setGraphEnabled } from 'mobx-react-devtools';
 
-
-import App from '../modules/app/AppView';
-import graphQLClient from '../graphql/graphQLClient';
+import App from '../modules/app/app-view';
 
 
 const mobxLoggerConfig : IMobXLoggerConfig = {
@@ -41,7 +38,6 @@ const Provider = ({ stores, history } : ProviderProps) => {
     (window as any).stores = stores;
 
     return (
-      <ApolloProvider client={graphQLClient}>
         <MobxProvider {...stores}>
           <Router history={history}>
             <div>
@@ -50,19 +46,16 @@ const Provider = ({ stores, history } : ProviderProps) => {
             </div>
           </Router>
         </MobxProvider>
-      </ApolloProvider>
     );
   };
 
   const renderProductionProvider = () => {
     return (
-      <ApolloProvider client={graphQLClient}>
         <MobxProvider {...stores}>
           <Router history={history}>
             <App />
           </Router>
         </MobxProvider>
-      </ApolloProvider>
     );
   };
 

@@ -8,7 +8,7 @@ services:
     build:
       context: .
       dockerfile: './docker/Dockerfile-node'
-    command: 'bash -c "source .env && yarn install && ./scripts/start.sh"'
+    command: 'bash -c "source .env && npm install && ./scripts/start.sh"'
     ports:
       - '3001:3001'
     working_dir: '/app'
@@ -22,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: './docker/Dockerfile-node'
-    command: 'bash -c "source .env && yarn install && yarn ci"'
+    command: 'bash -c "source .env && npm install && yarn ci"'
     ports:
       - '3001:3001'
     working_dir: '/app'
