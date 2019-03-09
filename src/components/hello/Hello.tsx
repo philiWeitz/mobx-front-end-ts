@@ -2,13 +2,22 @@
 import * as React from 'react';
 import * as style from './styles.scss';
 
-export default class Hello extends React.Component {
-  render() {
+
+interface HelloProps {
+  text?: string;
+}
+
+const Hello = ({ text } : HelloProps) => {
+
+  const renderContent = () => {
     return (
       <div className={style.page}>
-        <h1>Hello World Component!</h1>
-        <p>hello</p>
+        {text ? text : 'Hello World'}
       </div>
     );
-  }
-}
+  };
+
+  return renderContent();
+};
+
+export default Hello;

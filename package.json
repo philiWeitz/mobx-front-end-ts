@@ -12,7 +12,9 @@
     "start-debug": "webpack-dev-server --hot --host 0.0.0.0 --config ./config/webpack.dev.config.js --port 3001",
     "test": "jest --config=jest-config.json --forceExit --runInBand",
     "ci": "sh ./scripts/ci.sh",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@types/react": "16.8.7",
@@ -53,10 +55,16 @@
     "@babel/plugin-proposal-class-properties": "7.3.4",
     "@babel/preset-env": "7.3.4",
     "@babel/preset-react": "7.0.0",
+    "@storybook/addon-actions": "^5.0.1",
+    "@storybook/addon-links": "^5.0.1",
+    "@storybook/addon-options": "^5.0.1",
+    "@storybook/addons": "^5.0.1",
     "@storybook/cli": "^5.0.1",
+    "@storybook/react": "^5.0.1",
     "autoprefixer": "9.4.10",
     "babel-jest": "24.3.1",
     "babel-loader": "8.0.5",
+    "babel-plugin-import-inspector": "^2.0.0",
     "css-loader": "2.1.1",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.10.0",
