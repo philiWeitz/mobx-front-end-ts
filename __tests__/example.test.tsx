@@ -6,7 +6,6 @@ import enzymeToJson from 'enzyme-to-json';
 
 import { Hello } from '../src/components';
 
-
 declare const it: any;
 declare const expect: any;
 declare const describe: any;
