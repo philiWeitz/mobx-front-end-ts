@@ -13,13 +13,12 @@
   },
 
   "transform": {
-    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest"
   },
 
   "testRegex": ".*\\.test.(ts|tsx|js)$",
 
   "setupFiles": [
-    "<rootDir>/__tests__/pre-setup.js",
     "<rootDir>/__tests__/setup.js"
   ]
 }

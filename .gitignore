@@ -12,3 +12,6 @@ npm-debug.log
 env.js
 
 .env
+
+reports/
+selenium-server.log
