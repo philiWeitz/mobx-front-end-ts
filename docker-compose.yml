@@ -22,11 +22,11 @@ services:
     build:
       context: .
       dockerfile: './docker/Dockerfile-node'
-    command: 'bash -c "source .env && npm install && yarn ci"'
+    command: 'bash -c "source .env && npm install && npm run ci"'
     ports:
       - '3001:3001'
     working_dir: '/app'
     volumes:
       - '.:/app'
     env_file:
-      - '.env_test'
+      - '.env.test'

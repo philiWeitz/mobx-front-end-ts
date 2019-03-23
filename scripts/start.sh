@@ -4,8 +4,8 @@ echo ""
 if [ "$NODE_ENV" == "production" ]
 then
     echo "Start production server"
-    yarn start
+    npm run start
 else
     echo "Start development server"
-    yarn start-debug
+    npm run start-debug
 fi

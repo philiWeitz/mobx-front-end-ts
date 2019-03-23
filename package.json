@@ -15,7 +15,8 @@
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "nightwatch": "nightwatch -c nightwatch.conf.js -e chrome"
+    "nightwatch": "nightwatch -c nightwatch.conf.js -e chrome",
+    "nightwatch-install": "selenium-standalone install"
   },
   "dependencies": {
     "@types/react": "16.8.7",
@@ -37,7 +38,6 @@
     "path": "0.12.7",
     "react": "16.8.4",
     "react-dom": "16.8.4",
-    "react-i18next": "10.3.1",
     "react-router": "4.3.1",
     "resolve-url-loader": "3.0.1",
     "sass-loader": "7.1.0",
@@ -75,6 +75,7 @@
     "postcss-loader": "3.0.0",
     "selenium-download": "2.0.13",
     "selenium-server": "3.141.59",
+    "selenium-standalone": "6.15.6",
     "style-loader": "0.23.1",
     "ts-jest": "24.0.0",
     "webpack-merge": "4.2.1"

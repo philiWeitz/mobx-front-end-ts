@@ -10,7 +10,7 @@ export NODE_ENV=test
 printf "\n"
 printf "${BLUE}➤  Running lint tests...${NC}\n"
 
-yarn lint
+npm run lint
 STYLE_RESULT=$?
 printf "${BLUE}   done${NC}\n"
 
@@ -19,7 +19,7 @@ printf "${BLUE}   done${NC}\n"
 printf "\n\n"
 printf "${BLUE}➤  Running automated tests...${NC}\n"
 
-yarn test
+npm run test
 TEST_RESULT=$?
 printf "${BLUE}   done${NC}\n"
 

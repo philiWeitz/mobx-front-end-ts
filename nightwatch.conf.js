@@ -40,7 +40,11 @@ const config = {
         browserName: 'chrome',
         javascriptEnabled: true,
         acceptSslCerts: true,
-        nativeEvents: true
+        nativeEvents: true,
+        // run headless
+        chromeOptions : {
+          args : ["headless"]
+        }
       }
     },
     firefox: {
