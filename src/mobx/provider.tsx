@@ -3,9 +3,7 @@
 import * as React from 'react';
 
 import { IStores } from './stores';
-import { Router } from 'react-router';
 import { Provider as MobxProvider } from 'mobx-react';
-import { SynchronizedHistory } from 'mobx-react-router';
 import { enableLogging, IMobXLoggerConfig } from 'mobx-logger';
 import DevTools, { setLogEnabled, setUpdatesEnabled, setGraphEnabled } from 'mobx-react-devtools';
 
@@ -21,10 +19,12 @@ const mobxLoggerConfig : IMobXLoggerConfig = {
 };
 
 
-export interface ProviderProps { stores: IStores; history: SynchronizedHistory; }
+export interface ProviderProps {
+  stores: IStores;
+}
 
 
-const Provider = ({ stores, history } : ProviderProps) => {
+const Provider = ({ stores } : ProviderProps) => {
 
   const renderDevelopmentProvider = () => {
     // configure the mobX logger
@@ -39,12 +39,10 @@ const Provider = ({ stores, history } : ProviderProps) => {
 
     return (
         <MobxProvider {...stores}>
-          <Router history={history}>
-            <div>
-              <App />
-              <DevTools />
-            </div>
-          </Router>
+          <div>
+            <App />
+            <DevTools />
+          </div>
         </MobxProvider>
     );
   };
@@ -52,9 +50,7 @@ const Provider = ({ stores, history } : ProviderProps) => {
   const renderProductionProvider = () => {
     return (
         <MobxProvider {...stores}>
-          <Router history={history}>
-            <App />
-          </Router>
+          <App />
         </MobxProvider>
     );
   };
